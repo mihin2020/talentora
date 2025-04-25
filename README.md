@@ -1,0 +1,3 @@
+-Recevoir les candidatures par email
+-Apres avoir fait le filtre avancé afficher en dessous la liste de toutes les candidatures avec une fonction de recherche pour selectionner
+-en postulant extraire le cv en texte et l'enregistrer en base de donner pour éventuellement facilite l'analyser
