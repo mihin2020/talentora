@@ -9,12 +9,12 @@ use App\Http\Controllers\Profile\ProfileController;
 use App\Livewire\Entreprise\OffreEmploi;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthenticatedController::class, 'create'])->name('login');
+    Route::get('/', [AuthenticatedController::class, 'create'])->name('login');
     Route::post('/login', [AuthenticatedController::class, 'store'])->name('login.authenticate');
 });
 Route::get('/guest/entreprise/inscription', [EntrepriseController::class, 'addEntreprise'])->name('entreprise.addEntreprise');
