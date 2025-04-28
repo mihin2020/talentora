@@ -26,6 +26,12 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     @endif
+                                    @if (session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show">
+                                            <strong>Succès !</strong> {{ session('success') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @endif
                                     <h4 class="text-center mb-4">Connectez vous !!!</h4>
                                     <form action="{{ route('login.authenticate') }}" method="POST">
                                         @csrf

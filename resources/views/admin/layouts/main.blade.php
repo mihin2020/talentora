@@ -27,6 +27,11 @@
 	<link href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
 	<link href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 
+	@section('styles')
+    <!-- Summernote CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endsection
+
 	<!-- Globle CSS -->
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	@livewireStyles
@@ -70,7 +75,6 @@
 
 <!-- pour les alertes -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 <script>
 	function JobickCarousel() {

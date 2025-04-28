@@ -14,7 +14,7 @@
                     @error('prompt') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                <button type="submit" class="btn btn-primary" wire:loading.attr="disabled" @if($candidatures->isEmpty()) disabled @endif>
                     <span wire:loading wire:target="analyseCvs" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Rechercher
                 </button>

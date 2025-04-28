@@ -26,7 +26,8 @@
 
                             <label class="form-label d-flex justify-content-between align-items-center">
                                 Sélectionner des candidats :
-                                <button type="button" wire:click="toggleSelectAll" class="btn btn-sm btn-primary">
+                                <button type="button" wire:click="toggleSelectAll" class="btn btn-sm btn-primary"
+                                    @if($candidats->isEmpty()) disabled @endif>
                                     {{ $selectAll ? 'Tout décocher' : 'Tout sélectionner' }}
                                 </button>
                             </label>
@@ -43,7 +44,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($candidats as $index => $candidat)
+                                        @forelse ($candidats as $index => $candidat)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>
@@ -54,7 +55,11 @@
                                             <td>{{ $candidat->user->email }}</td>
                                             <td>{{ $candidat->user->phone }}</td>
                                         </tr>
-                                        @endforeach
+                                        @empty
+                                        <tr>
+                                            <td colspan="6" class="text-center">Aucun candidat trouvé.</td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -72,7 +77,10 @@
                             @error('pieceJointe') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Envoyer l'email</button>
+                        <button type="submit" class="btn btn-primary"
+                            @if($candidats->isEmpty()) disabled @endif>
+                            Envoyer l'email
+                        </button>
 
                     </form>
                 </div>
@@ -93,7 +101,7 @@
 </script>
 
 <script>
-    document.addEventListener('livewire:load', function () {
+    document.addEventListener('livewire:load', function() {
         Livewire.on('close-modal', () => {
             var contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
             contactModal.hide();

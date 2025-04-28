@@ -68,7 +68,7 @@
                                     <td>
                                         <div class="action-buttons d-flex justify-content-end">
 
-                                            <a href="{{ route('offre.toggleStatus', $offre->id) }}" class="btn btn-success light mr-2">
+                                            <a href="{{ route('offre.toggleStatus', $offre->id) }}" class="btn btn-success light mr-2" title="{{ $offre->status == 'publie' ? 'Désactiver l\'offre' : 'Activer l\'offre' }}">
                                                 @if ($offre->status == 'publie')
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M9 12l2 2l4 -4"></path>

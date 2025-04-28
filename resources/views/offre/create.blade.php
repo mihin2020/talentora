@@ -25,7 +25,7 @@
                                     <!-- Titre du poste -->
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="title" class="form-label">Titre du poste  <span class="text-danger">*</span></label>
+                                            <label for="title" class="form-label">Titre du poste <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="title" name="title" require>
                                             @error('title') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
@@ -76,7 +76,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="salary" class="form-label">Salaire</label>
-                                            <input type="text"  class="form-control" id="salary" name="salaire" required>
+                                            <input type="text" class="form-control" id="salary" name="salaire" >
                                             @error('salaire') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                     <!-- Date d'expiration -->
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="deadline" class="form-label">Date d'expiration  <span class="text-danger">*</span></label>
+                                            <label for="deadline" class="form-label">Date d'expiration <span class="text-danger">*</span></label>
                                             <input type="date" class="form-control" id="deadline" name="deadline" required>
                                         </div>
                                     </div>
@@ -104,10 +104,8 @@
                                     <!-- Description du poste -->
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="description" class="form-label">Description du poste  <span class="text-danger">*</span></label>
-                                            <!-- <div id="description" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="description-input" name="description"> -->
-                                            <textarea class="form-control" name="description" id="" cols="30" rows="10" require></textarea>
+                                            <label for="description" class="form-label">Description du poste <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="10" require></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +123,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="language" class="form-label">Langue</label>
-                                            <input type="text" class="form-control" id="language" name="langue" required>
+                                            <input type="text" class="form-control" id="language" name="langue" >
                                             @error('langue') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -133,10 +131,8 @@
                                     <!-- Compétences -->
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="skills" class="form-label">Compétences  <span class="text-danger">*</span></label>
-                                            <!-- <div id="skills" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="skills-input" name="skills"> -->
-                                            <textarea class="form-control" name="skills" id="" cols="30" rows="10" require></textarea>
+                                            <label for="skills" class="form-label">Compétences <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="skills" id="skills" cols="30" rows="10" require></textarea>
                                         </div>
                                     </div>
 
@@ -144,19 +140,15 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="experience" class="form-label">Expérience</label>
-                                            <!-- <div id="experience" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="experience-input" name="experience"> -->
-                                            <textarea class="form-control" name="experience"id="" cols="30" rows="10"></textarea>
+                                            <textarea class="form-control" name="experience" id="experience" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
 
                                     <!-- Formation -->
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="formation" class="form-label">Formation  <span class="text-danger">*</span></label>
-                                            <!-- <div id="formation" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="formation-input" name="formation"> -->
-                                            <textarea class="form-control" name="formation" id="" cols="30" rows="10" required></textarea>
+                                            <label for="formation" class="form-label">Formation <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="formation" id="formation" cols="30" rows="10" required></textarea>
                                         </div>
                                     </div>
 
@@ -164,9 +156,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="mission" class="form-label">Mission</label>
-                                            <!-- <div id="mission" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="mission-input" name="mission"> -->
-                                            <textarea class="form-control" name="mission" id="" cols="30" rows="10"></textarea>
+                                            <textarea class="form-control" name="mission" id="mission" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -184,9 +174,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="objective" class="form-label">Objectif</label>
-                                            <!-- <div id="objective" class="quill-editor" style="height: 250px;"></div>
-                                            <input type="hidden" id="objective-input" name="objective"> -->
-                                            <textarea class="form-control" name="objective" id="" cols="30" rows="10"></textarea>
+                                            <textarea class="form-control" name="objective" id="objective" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -211,16 +199,16 @@
                                     </div>
 
                                     <!-- Statut -->
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="status" class="form-label">Statut</label>
-                                            <select class="form-select" id="status" name="status" >
+                                            <select class="form-select" id="status" name="status">
                                                 <option value="">-- Sélectionnez le statut --</option>
                                                 <option value="brouillon">Brouillon</option>
                                                 <option value="publie">Publié</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -235,5 +223,3 @@
         </div>
     </div>
     @endsection
-
-   

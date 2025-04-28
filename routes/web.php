@@ -18,6 +18,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthenticatedController::class, 'store'])->name('login.authenticate');
 });
 Route::get('/guest/entreprise/inscription', [EntrepriseController::class, 'addEntreprise'])->name('entreprise.addEntreprise');
+Route::post('/entreprise/inscription', [EntrepriseController::class, 'storeEntreprise'])->name('entreprise.storeEntreprise');
 Route::get('/offres/{idSlug}', [OffreController::class, 'share'])->name('entreprise.offre.share');
 Route::post('/postuler/{offre_id}', [CandidatController::class, 'postuler'])->name('candidature.postuler');
 Route::post('/inscrire', [CandidatController::class, 'inscrireEtPostuler'])->name('candidature.inscrire');
@@ -43,8 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/entreprises/{id}', [EntrepriseController::class, 'destroy'])->name('entreprise.destroy');
     Route::get('/admin/entreprises/{id}', [EntrepriseController::class, 'show'])->name('entreprise.show');
     Route::put('/entreprises/{entreprise}/toggle-status', [EntrepriseController::class, 'toggleStatus'])->name('entreprise.toggleStatus');
-    Route::post('/entreprise/inscription', [EntrepriseController::class, 'storeEntreprise'])->name('entreprise.storeEntreprise');
-
+   
     // Route::get('/entreprise/offre', OffreEmploi::class)->name('entreprise.offre');
     route::get('/entreprise/offre/create', [OffreController::class, 'create'])->name('entreprise.offre.create');
     Route::get('/entreprise/offre', [OffreController::class, 'index'])->name('entreprise.offre.index');

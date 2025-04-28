@@ -72,6 +72,11 @@ class Offre extends Model
     return $this->belongsTo(User::class);
 }
 
+public function searchKeywords()
+{
+    return $this->hasOne(SearchKeyword::class, 'offre_id');
+}
+
     protected $casts = [
         'deadline' => 'datetime',
     ];

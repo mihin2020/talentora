@@ -3,6 +3,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Candidature;
 use Livewire\Component;
 use App\Models\Offre;
 
@@ -37,6 +38,37 @@ class ViewSelectedCandidates extends Component
 
         $this->showModal = true;
     }
+
+//     public function loadCandidates()
+// {
+//     $offre = Offre::find($this->offreId);
+
+//     if (!$offre) {
+//         $this->offreTitle = 'Offre introuvable';
+//         $this->candidates = [];
+//         return;
+//     }
+
+//     // Filtrer uniquement les candidatures liées à CETTE offre et sélectionnées
+//     $candidatures = Candidature::where('offre_id', $offre->id)
+//         ->where('best_candidate', true)
+//         ->with('user')
+//         ->get();
+
+//     $this->offreTitle = $offre->title;
+
+//     $this->candidates = $candidatures->map(function($candidature) {
+//         return [
+//             'firstname' => $candidature->user->firstname,
+//             'lastname' => $candidature->user->lastname,
+//             'email' => $candidature->user->email,
+//             'phone' => $candidature->user->phone,
+//         ];
+//     });
+
+//     $this->showModal = true;
+// }
+
 
     public function render()
     {

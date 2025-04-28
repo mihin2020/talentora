@@ -79,7 +79,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="salary" class="form-label">Salaire</label>
-                                            <input type="text" class="form-control" id="salary" name="salaire" value="{{ old('salaire', $offre->salaire) }}" required>
+                                            <input type="text" class="form-control" id="salary" name="salaire" value="{{ old('salaire', $offre->salaire) }}" >
                                             @error('salaire') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="language" class="form-label">Langue</label>
-                                            <input type="text" class="form-control" id="language" name="langue" value="{{ old('langue', $offre->langue) }}" required>
+                                            <input type="text" class="form-control" id="language" name="langue" value="{{ old('langue', $offre->langue) }}" >
                                             @error('langue') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -206,8 +206,8 @@
                                         <div class="mb-3">
                                             <label for="file" class="form-label">Fichier joint (optionnel)</label>
                                             <input type="file" class="form-control" id="file" name="file">
-                                            @if ($offre->file)
-                                            <p class="mt-2">Fichier actuel : <a href="{{ asset('storage/' . $offre->file) }}" target="_blank">Télécharger</a></p>
+                                            @if ($offre->fiche)
+                                            <p class="mt-2 fw-bold text-secondary fs-5">Fichier actuel : <a href="{{ asset('storage/' . $offre->fiche) }}" target="_blank">Télécharger</a></p>
                                             @endif
                                             @error('file') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>

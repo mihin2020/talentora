@@ -71,82 +71,90 @@
 
                         <div class="col-xl-8 col-lg-8 col-sm-12 m-b30 offset-xl-2 offset-lg-2">
                             @if (session('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @elseif (session('error'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ session('error') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @endif
 
-                     
+
                             <div class="form-wrapper style-1">
                                 <h2 class="title m-a0 wow ">Formulaire de candidature</h2>
-                                <p class="font-text text-primary p-b10 wow ">NB:Assurez vous que vous informations soient correctes et que les fichiers <br>à télécharger soit en PDF</p>
+                                <p class="font-text text-primary p-b10 wow ">NB:Assurez vous que vous informations soient correctes et que les fichiers <br>à télécharger soit en PDF et ne doit excéder 2 Mega</p>
                                 <div class="contact-area">
                                     <form action="{{ route('candidature.inscrire') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                                         @csrf
 
-                                        <!-- ID de l'offre caché -->
                                         <input type="hidden" name="offre_id" value="{{ $offre_id }}">
 
                                         <!-- Prénom -->
                                         <div class="mb-3">
                                             <label for="firstname" class="form-label">Prénom :</label>
-                                            <input type="text" class="form-control" id="firstname" name="firstname" required>
-                                            <div class="invalid-feedback">
-                                                Veuillez entrer votre prénom.
-                                            </div>
+                                            <input type="text" class="form-control @error('firstname') is-invalid @enderror" id="firstname" name="firstname" required value="{{ old('firstname') }}">
+                                            @error('firstname')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                            <div class="invalid-feedback">Veuillez entrer votre prénom.</div>
                                         </div>
 
                                         <!-- Nom -->
                                         <div class="mb-3">
                                             <label for="lastname" class="form-label">Nom :</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname" required>
-                                            <div class="invalid-feedback">
-                                                Veuillez entrer votre nom.
-                                            </div>
+                                            <input type="text" class="form-control @error('lastname') is-invalid @enderror" id="lastname" name="lastname" required value="{{ old('lastname') }}">
+                                            @error('lastname')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                            <div class="invalid-feedback">Veuillez entrer votre nom.</div>
                                         </div>
 
                                         <!-- Téléphone -->
                                         <div class="mb-3">
                                             <label for="phone" class="form-label">Téléphone :</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" required>
-                                            <div class="invalid-feedback">
-                                                Veuillez entrer votre numéro de téléphone.
-                                            </div>
+                                            <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" required value="{{ old('phone') }}">
+                                            @error('phone')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                            <div class="invalid-feedback">Veuillez entrer votre numéro de téléphone.</div>
                                         </div>
 
                                         <!-- Email -->
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email :</label>
-                                            <input type="email" class="form-control" id="email" name="email" required>
-                                            <div class="invalid-feedback">
-                                                Veuillez entrer votre adresse email valide.
-                                            </div>
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required value="{{ old('email') }}">
+                                            @error('email')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                            <div class="invalid-feedback">Veuillez entrer votre adresse email valide.</div>
                                         </div>
 
                                         <!-- CV -->
                                         <div class="mb-3">
                                             <label for="cv" class="form-label">CV :</label>
-                                            <input type="file" class="form-control" id="cv" name="cv" required>
-                                            <div class="invalid-feedback">
-                                                Veuillez télécharger votre CV.
-                                            </div>
+                                            <input type="file" class="form-control @error('cv') is-invalid @enderror" id="cv" name="cv" required>
+                                            @error('cv')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
+                                            <div class="invalid-feedback">Veuillez télécharger votre CV.</div>
                                         </div>
 
-                                        <!-- Autre document (optionnel) -->
+                                        <!-- Autre document -->
                                         <div class="mb-3">
                                             <label for="autre_document" class="form-label">Autre document (optionnel) :</label>
-                                            <input type="file" class="form-control" id="autre_document" name="autre_document">
+                                            <input type="file" class="form-control @error('autre_document') is-invalid @enderror" id="autre_document" name="autre_document">
+                                            @error('autre_document')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <!-- Bouton soumettre -->
                                         <button type="submit" class="btn btn-primary">S'inscrire et Postuler</button>
                                     </form>
+
 
 
                                     <script>

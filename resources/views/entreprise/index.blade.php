@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             @can('is-admin')
-                            <h4 class="card-title">Information sur l'entreprises</h4>
+                            <h4 class="card-title">Information sur l'entreprise</h4>
                             @endcan
                             @can('access-entreprise')
                             <h4 class="card-title">Liste des entreprises</h4>
@@ -93,9 +93,7 @@
                                                         </button>
                                                     </form>
                                                     @endif
-
                                                 </div>
-
                                             </td>
                                         </tr>
                                         @endforeach

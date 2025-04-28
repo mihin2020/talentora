@@ -29,10 +29,14 @@ class ContactCandidats extends Component
     public function mount($offreId = null)
     {
         $this->offreId = $offreId;
-
-        // Récupérer tous les candidats où best_candidate = true
-        $this->candidats = Candidature::where('best_candidate', true)->with('user')->get();
+    
+        // Ne prendre que les candidatures sélectionnées pour cette offre précise
+        $this->candidats = Candidature::where('best_candidate', true)
+            ->where('offre_id', $this->offreId)
+            ->with('user')
+            ->get();
     }
+    
 
     public function toggleSelectAll()
     {

@@ -30,7 +30,6 @@ class StoreOffreRequest extends FormRequest
             'objective' => 'nullable|string',
             'otherInformation' => 'nullable|string',
             'fiche' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
-
             'link' => 'nullable|max:255',
         ];
     }

@@ -64,6 +64,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @livewire('view-selected-candidates', ['offreId' => $offre->id], key($offre->id))
+                                           
                                             <button class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#contactModal" wire:click="$emit('setOffre', {{ $offre->id }})">
                                                 <i class="fas fa-envelope me-2"></i>
                                             </button>

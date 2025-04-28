@@ -63,14 +63,34 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="d-flex">
-                                            <a href="{{ route('candidature.analyserCvs', ['offreId' => $offre->id]) }}" class="btn btn-dark me-2">
-                                                Filtrer les candidatures
-                                            </a>
-                                            <a href="{{ route('candidatures.avance', ['offreId' => $offre->id]) }}" class="btn btn-primary">
-                                                Recherche avancée
-                                            </a>
-                                        </div>
+                                    <div class="d-flex">
+    @php
+        $hasKeywords = false;
+        if ($offre->searchKeywords && is_array($offre->searchKeywords->keyword)) {
+            $hasKeywords = count(array_filter($offre->searchKeywords->keyword)) > 0;
+        }
+    @endphp
+
+    @if ($offre->candidatures_count > 0 && $hasKeywords)
+        <a href="{{ route('candidature.analyserCvs', ['offreId' => $offre->id]) }}" class="btn btn-dark me-2">
+            Filtrer les candidatures
+        </a>
+    @else
+        <button class="btn btn-dark me-2" disabled>
+            Filtrer les candidatures 
+            @if($offre->candidatures_count == 0)
+                (Aucune candidature)
+            @elseif(!$hasKeywords)
+                (Aucun mot-clé)
+            @endif
+        </button>
+    @endif
+
+    <a href="{{ route('candidatures.avance', ['offreId' => $offre->id]) }}" class="btn btn-primary">
+        Recherche avancée
+    </a>
+</div>
+
                                     </td>
                                 </tr>
                                 @empty

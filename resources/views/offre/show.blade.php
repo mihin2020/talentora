@@ -29,13 +29,13 @@
                                         <span class="me-2">
                                             <a href="#">
                                                 <i class="text-primary fas fa-dollar-sign me-2"></i>
-                                                {{ $offre->salaire ?? '<span class="badge bg-primary">Non renseigné</span>' }}
+                                                {!! $offre->salaire ? $offre->salaire : '<span class="badge bg-primary">Non renseigné</span>' !!}
                                             </a>
                                         </span>
                                         <span class="me-2">
                                             <a href="#">
                                                 <i class="text-primary fas fa-language me-2"></i>
-                                                {{ $offre->langue ?? '<span class="badge bg-primary">Non renseigné</span>' }}
+                                                {!! $offre->langue ? $offre->langue : '<span class="badge bg-primary">Non renseigné</span>' !!}
                                             </a>
                                         </span>
                                     </div>

@@ -62,7 +62,7 @@ class CandidatController extends Controller
     {
         // Validation rapide des fichiers
         $request->validate([
-            'cv' => 'required|file|mimes:pdf,doc,docx',
+            'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'autre_document' => 'nullable|file|mimes:pdf,doc,docx',
         ]);
 
@@ -101,7 +101,7 @@ class CandidatController extends Controller
             'lastname' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'cv' => 'required|file|mimes:pdf',
+            'cv' => 'required|file|mimes:pdf|max:2048',
             'autre_document' => 'nullable|file|mimes:pdf,doc,docx',
             'offre_id' => 'required|exists:offres,id',
         ]);
